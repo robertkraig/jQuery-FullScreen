@@ -44,11 +44,11 @@
 		} else if (document.webkitCancelFullScreen) {
 			document.webkitCancelFullScreen();
 		}
-		$(document).off( 'fullscreenchange mozfullscreenchange webkitfullscreenchange' );
+		$(document).unbind( 'fullscreenchange mozfullscreenchange webkitfullscreenchange' );
 	}
 
 	function onFullScreenEvent(callback){
-		$(document).on("fullscreenchange mozfullscreenchange webkitfullscreenchange", function(){
+		$(document).bind("fullscreenchange mozfullscreenchange webkitfullscreenchange", function(){
 			// The full screen status is automatically
 			// passed to our callback as an argument.
 			callback(fullScreenStatus());
